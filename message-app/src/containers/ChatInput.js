@@ -26,6 +26,10 @@ const ChatInput = ({
   const handleChange = (e) => {
     setTypedMessage(e.target.value);
   };
+
+  const handleClear = (e) => {
+    setTypedMessage("");
+  };
   return (
     <form className="chat-form" onSubmit={handleSubmit}>
       <input
@@ -34,6 +38,9 @@ const ChatInput = ({
         value={typedMessage}
         placeholder="Type a message"
       />
+      <button className="input-submit" onClick={handleClear}>
+        Clear
+      </button>
       <button className="input-submit" onSubmit={handleSubmit}>
         Send
       </button>
