@@ -1,0 +1,187 @@
+.app-container {
+  display: flex;
+}
+h1,
+h2,
+h3 {
+  font-weight: 500;
+}
+.navbar {
+  background-color: white;
+  height: 6vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.navbar span {
+  padding-left: 1em;
+  padding-right: 1em;
+  cursor: pointer;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #eff3f7;
+  height: 94vh;
+  padding-top: 3em;
+}
+.chat-list {
+  background-color: white;
+  height: 94vh;
+  overflow: scroll;
+}
+
+.main-window {
+  /* to fill the  remain-window-windowing space of App which is a flex*/
+  flex: 1;
+  background-color: #eff3f7;
+  height: 94vh;
+}
+
+.contact {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 1em;
+  padding-left: 1em;
+}
+
+.contact-name {
+  font-weight: 700;
+  color: #421c52;
+}
+
+.contact.isActive {
+  background: #edeafd;
+  cursor: pointer;
+}
+.contact img,
+.chat-pic {
+  width: 50px;
+  border-radius: 50%;
+}
+
+/* details are hidden on phone screen */
+.contact-details {
+  display: none;
+}
+
+.welcome-window {
+  padding-top: 5em;
+  text-align: center;
+}
+.welcome-window img {
+  border-radius: 50%;
+  width: 10em;
+}
+
+.chat-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5em 2em;
+  border-bottom: 0.3px solid #fafafa;
+  height: 15%;
+}
+
+.chat-header-pic img {
+  width: 90px;
+  border-radius: 50%;
+  margin-right: 2em;
+}
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  height: 94vh;
+}
+
+.chat-messages {
+  /* grow acording to chat window */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 85%;
+  height: 70%;
+  margin: 0 auto;
+  overflow-y: scroll;
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.chat-message.is-user {
+  flex-direction: row-reverse;
+}
+.chat {
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 10px;
+}
+.chat.other-user {
+  background: #a9b0bd;
+  margin-left: 1em;
+}
+.chat.is-user {
+  background-color: #4daeea;
+  color: white;
+  margin-right: 1em;
+}
+.chat-form {
+  bottom: 2rem;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.chat-input {
+  width: 70%;
+  height: 15%;
+  padding: 1.5em;
+  background: #fafafa;
+  border: 0;
+  border-radius: 10px;
+  font-size: 1em;
+  outline: 0;
+}
+
+.input-submit {
+  background-color: #7754f7;
+  height: 3.4em;
+  width: 6em;
+  border: 0;
+  border-radius: 1em;
+  color: white;
+  font-size: medium;
+}
+.delete-btn {
+  position: relative;
+  background-color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 100%;
+  padding: 0.3em 0.6em;
+  margin-right: 1em;
+}
+/* large devices  */
+@media (min-width: 580px) {
+  .contact-details {
+    display: block;
+    padding: 0 0 0 1em;
+  }
+  .contact-name {
+    margin: 0;
+  }
+  .chat-list {
+    width: 320px;
+  }
+}
