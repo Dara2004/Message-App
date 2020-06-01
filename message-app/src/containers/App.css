@@ -33,6 +33,7 @@ h3 {
   background-color: white;
   height: 94vh;
   overflow: scroll;
+  cursor: pointer;
 }
 
 .main-window {
