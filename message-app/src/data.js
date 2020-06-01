@@ -1,6 +1,8 @@
 import michellePic from "./michelle-obama.jpg";
 import corgiPic from "./corgi.jpg";
 import barackPic from "./barack-obama.jpg";
+import rihannaPic from "./rihanna.jpg";
+import kevinPic from "./kevin-hart.jpg";
 
 const data = {
   activeId: null,
@@ -46,6 +48,42 @@ const data = {
         text: "Great! Long time no see!",
       },
     ],
+    3: [
+      {
+        is_user: false,
+        text: "Hi Corgi",
+      },
+      {
+        is_user: true,
+        text: "Hi Rihanna!",
+      },
+      {
+        is_user: false,
+        text: "How are you?",
+      },
+      {
+        is_user: true,
+        text: "Great! Long time no see!",
+      },
+    ],
+    4: [
+      {
+        is_user: false,
+        text: "Hi Corgi",
+      },
+      {
+        is_user: true,
+        text: "Hi Kevin!",
+      },
+      {
+        is_user: false,
+        text: "How are you?",
+      },
+      {
+        is_user: true,
+        text: "Great! Long time no see!",
+      },
+    ],
   },
   contacts: [
     {
@@ -67,46 +105,16 @@ const data = {
       status: "US President",
     },
     {
-      user_id: 2,
-      name: "Barack Obama",
-      pic: barackPic,
-      status: "US President",
+      user_id: 3,
+      name: "Rihanna",
+      pic: rihannaPic,
+      status: "Singer",
     },
     {
-      user_id: 2,
-      name: "Barack Obama",
-      pic: barackPic,
-      status: "US President",
-    },
-    {
-      user_id: 2,
-      name: "Barack Obama",
-      pic: barackPic,
-      status: "US President",
-    },
-    {
-      user_id: 2,
-      name: "Barack Obama",
-      pic: barackPic,
-      status: "US President",
-    },
-    {
-      user_id: 2,
-      name: "Barack Obama",
-      pic: barackPic,
-      status: "US President",
-    },
-    {
-      user_id: 2,
-      name: "Barack Obama",
-      pic: barackPic,
-      status: "US President",
-    },
-    {
-      user_id: 2,
-      name: "Barack Obama",
-      pic: barackPic,
-      status: "US President",
+      user_id: 4,
+      name: "Kevin Hart",
+      pic: kevinPic,
+      status: "Comedian",
     },
   ],
 };

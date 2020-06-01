@@ -38,11 +38,11 @@ const ChatInput = ({
         value={typedMessage}
         placeholder="Type a message"
       />
-      <button className="input-submit" onClick={handleClear}>
-        Clear
-      </button>
       <button className="input-submit" onSubmit={handleSubmit}>
         Send
+      </button>
+      <button className="input-submit" onClick={handleClear}>
+        Clear
       </button>
     </form>
   );
