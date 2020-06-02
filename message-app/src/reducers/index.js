@@ -3,6 +3,7 @@ import messages from "./messages";
 import contacts from "./contacts";
 import activeId from "./activeId";
 import typedMessage from "./typedMessage";
+import selectedContactId from "./selectedContactId";
 import { combineReducers } from "redux";
 
 //shape of the obj passed to the combineReducer is the same as the global state
@@ -15,4 +16,5 @@ export default combineReducers({
   messages,
   contacts, //contacts: contacts
   typedMessage,
+  selectedContactId,
 });
