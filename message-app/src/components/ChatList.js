@@ -29,6 +29,7 @@ const ChatList = ({ contacts, createPerson }) => {
         <h3
           style={{ margin: "0 auto 1em auto", color: "purple" }}
           onClick={handleClick}
+          className="add-person"
         >
           {isAddPersonVisible ? "< Close" : "+ Add a person"}
         </h3>
@@ -39,19 +40,23 @@ const ChatList = ({ contacts, createPerson }) => {
             autocomplete: "off",
             position: "absolute",
             bottom: "0px",
-            left: "330px",
+            left: "310px",
             display: "flex",
             flexDirection: "column",
             marginLeft: "2em",
+            backgroundColor: "white",
+            padding: "2em",
+            borderRadius: "10px 10px 0px 0px",
           }}
           autocomplete="off"
           onSubmit={handleSubmit}
         >
+          <h2>Add a person</h2>
           <div
             style={{
               display: "flex",
               alignItems: "center",
-              marginBottom: "2em",
+              marginBottom: "0.5em",
             }}
           >
             <h5 style={{ flex: 1 }}>Name: </h5>
@@ -67,7 +72,7 @@ const ChatList = ({ contacts, createPerson }) => {
             style={{
               display: "flex",
               alignItems: "center",
-              marginBottom: "2em",
+              marginBottom: "0.5em",
             }}
           >
             <h5 style={{ flex: 1 }}>Status: </h5>
@@ -82,7 +87,7 @@ const ChatList = ({ contacts, createPerson }) => {
             style={{
               display: "flex",
               alignItems: "center",
-              marginBottom: "2em",
+              marginBottom: "1.5em",
             }}
           >
             <h5 style={{ flex: 1 }}>Details: </h5>
@@ -100,7 +105,6 @@ const ChatList = ({ contacts, createPerson }) => {
               textAlign: "center",
               justifyContent: "center",
               justifyItems: "center",
-              marginBottom: "2em",
             }}
           >
             <button type="submit" className="input-submit">
