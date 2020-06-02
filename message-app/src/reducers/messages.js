@@ -1,8 +1,26 @@
 import data from "../data";
 
+const quotes = ["Hi Corgi you finally added me!", "Woof!"];
+
+function randomQuote() {
+  return quotes[Math.floor(Math.random() * quotes.length)];
+}
+
 const messages = (state = data.messages, action) => {
   const existingMessages = state[action.messageId];
   switch (action.type) {
+    case "CREATE_PERSON": {
+      const id = Object.keys(state).length;
+      return {
+        ...state,
+        [id]: [
+          {
+            is_user: false,
+            text: randomQuote(),
+          },
+        ],
+      };
+    }
     case "SEND_MESSAGE": {
       //create a new conversation if id is new
       if (!existingMessages) {
@@ -52,22 +70,20 @@ const messages = (state = data.messages, action) => {
       };
       return newState;
     }
+    case "SET_ACTIVE_ID": {
+      return {
+        ...state,
+        editing: {
+          isEditing: false,
+        },
+      };
+    }
     case "DELETE_MESSAGE": {
       const newState = { ...state }; //all messages
       newState[action.activeId] = newState[action.activeId].filter(
         (message, index) => action.messageId !== index
       );
       return newState;
-    }
-    case "SET_ACTIVE_ID": {
-      //when switch conversation, clear editing
-      return {
-        ...state,
-        [state.editing]: {
-          isEditing: false,
-          editedMessageId: null, //optional
-        },
-      };
     }
     default:
       return state;

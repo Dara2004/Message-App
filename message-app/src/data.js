@@ -14,6 +14,7 @@ const data = {
     name: "Corgi",
     pic: corgiPic,
     status: "Best dog ever",
+    details: "I am the coolest dog in the world",
   },
   messages: {
     editing: {
@@ -92,30 +93,38 @@ const data = {
       name: "Corgi",
       pic: corgiPic,
       status: "Best dog ever",
+      details: "I am the coolest dog in the world",
     },
     {
       user_id: 1,
       name: "Michelle Obama",
       pic: michellePic,
       status: "First Lady",
+      details:
+        "Here in America, we don't let our differences tear us apart. Not here. Because we know that our greatness comes from when we appreciate each other's strengths, when we learn from each other, when we lean on each other, because in this country, it's never been each person for themselves. No, we're all in this together. We always have been.",
     },
     {
       user_id: 2,
       name: "Barack Obama",
       pic: barackPic,
       status: "US President",
+      details:
+        "Change will not come if we wait for some other person or some other time. We are the ones we've been waiting for. We are the change that we seek.",
     },
     {
       user_id: 3,
       name: "Rihanna",
       pic: rihannaPic,
-      status: "Singer",
+      status: "Musician",
+      details: "The bottom line is that everyone thinks differently.",
     },
     {
       user_id: 4,
       name: "Kevin Hart",
       pic: kevinPic,
       status: "Comedian",
+      details:
+        "Laughter heals all wounds, and that's one thing that everybody shares. No matter what you're going through, it makes you forget about your problems. I think the world should keep laughing.",
     },
   ],
 };

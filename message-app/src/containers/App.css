@@ -30,6 +30,8 @@ h3 {
   padding-top: 3em;
 }
 .chat-list {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   height: 94vh;
   overflow: scroll;
@@ -179,6 +181,12 @@ h3 {
   border-radius: 100%;
   padding: 0.3em 0.6em;
   margin-right: 1em;
+}
+.add-person-input {
+  font-size: medium;
+  border: none;
+  padding: 1em;
+  width: 20em;
 }
 /* large devices  */
 @media (min-width: 580px) {

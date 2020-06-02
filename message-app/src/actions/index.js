@@ -40,3 +40,10 @@ export const setSelectedContactId = (contactId) => ({
   type: "SET_SELECTED_CONTACT_ID",
   contactId,
 });
+
+export const createPerson = (name, status, details) => ({
+  type: "CREATE_PERSON",
+  name,
+  status,
+  details,
+});
