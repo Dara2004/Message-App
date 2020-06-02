@@ -78,7 +78,14 @@ h3 {
   border-radius: 50%;
   width: 10em;
 }
-
+.message-btn {
+  border: 0;
+  padding: 1em;
+  background-color: #7754f7;
+  color: #fafafa;
+  border-radius: 20px;
+  font-size: large;
+}
 .chat-header {
   display: flex;
   flex-direction: row;

@@ -35,3 +35,8 @@ export const deleteMessage = (messageId, activeId) => ({
   messageId,
   activeId,
 });
+
+export const setSelectedContactId = (contactId) => ({
+  type: "SET_SELECTED_CONTACT_ID",
+  contactId,
+});

@@ -7,6 +7,7 @@ import kevinPic from "./kevin-hart.jpg";
 const data = {
   activeId: null,
   isTyping: false,
+  selectedContactId: null,
   typedMessage: "",
   user: {
     user_id: 0,
