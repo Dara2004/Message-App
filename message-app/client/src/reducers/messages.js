@@ -1,12 +1,10 @@
-import data from "../data";
-
 const quotes = ["Hi Corgi you finally added me!", "Woof!"];
 
 function randomQuote() {
   return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
-const messages = (state = data.messages, action) => {
+const messages = (state = [], action) => {
   const existingMessages = state[action.messageId];
   switch (action.type) {
     case "CREATE_PERSON": {

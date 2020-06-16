@@ -1,6 +1,4 @@
-import data from "../data";
-
-const user = (state = data.user, action) => {
+const user = (state = null, action) => {
   return state;
 };
 

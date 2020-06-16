@@ -7,8 +7,11 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducers from "./reducers";
 import { devToolsEnhancer } from "redux-devtools-extension";
+import data from "./dataFromBackend";
+import { createInitialReduxState } from "./utils/functions";
 
-const store = createStore(reducers, devToolsEnhancer()); //the reducers set the initial state
+const initialState = createInitialReduxState(data);
+const store = createStore(reducers, initialState, devToolsEnhancer()); //the reducers set the initial state
 
 ReactDOM.render(
   <Provider store={store}>

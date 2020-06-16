@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setActiveId } from "../actions";
-
+import { getProfilePicSrc } from "../utils/functions";
 //parent: MainWindow
 const ContactViewDetail = ({
   activeId,
@@ -28,7 +28,7 @@ const ContactViewDetail = ({
         marginLeft: "10%",
       }}
     >
-      <img src={pic} alt="" />
+      <img src={getProfilePicSrc(pic)} alt={pic} />
       <h1>{name}</h1>
       <h3>
         <span style={{ fontWeight: "bolder" }}>Status: </span> {status}

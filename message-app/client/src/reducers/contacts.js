@@ -1,12 +1,17 @@
-import data from "../data";
-
+const dogImages = [
+  "dog1.jpg",
+  "dog2.jpg",
+  "dog3.jpg",
+  "dog4.jpg",
+  "dog5.jpg",
+  "dog6.jpg",
+];
 function randomImage() {
-  // get a random number from 170-320
-  const randomNumber = Math.floor(Math.random() * 150 + 170);
-  return `https://placedog.net/${randomNumber}/${randomNumber}`;
+  // get a random img from dogImages, index 0-5
+  return dogImages[Math.floor(Math.random() * dogImages.length)];
 }
 
-const contacts = (state = data.contacts, action) => {
+const contacts = (state = [], action) => {
   switch (action.type) {
     case "CREATE_PERSON": {
       return [

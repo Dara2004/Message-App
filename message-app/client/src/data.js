@@ -1,8 +1,8 @@
-import michellePic from "./michelle-obama.jpg";
-import corgiPic from "./corgi.jpg";
-import barackPic from "./barack-obama.jpg";
-import rihannaPic from "./rihanna.jpg";
-import kevinPic from "./kevin-hart.jpg";
+const michellePic = "michelle-obama.jpg";
+const corgiPic = "corgi.jpg";
+const barackPic = "barack-obama.jpg";
+const rihannaPic = "rihanna.jpg";
+const kevinPic = "kevin-hart.jpg";
 
 const data = {
   activeId: null,
@@ -22,7 +22,6 @@ const data = {
       editedMessageId: null,
     },
     1: [
-      //message with user_id = 1
       {
         is_user: false,
         text: "Hello Corgi",

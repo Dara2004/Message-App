@@ -12,10 +12,6 @@ const ConversationSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
       },
-      timeStamp: {
-        type: mongoose.Schema.Types.Date,
-        default: new Date(),
-      },
       message: String,
     },
   ],

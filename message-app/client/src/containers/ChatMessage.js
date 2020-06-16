@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useRef } from "react";
 import { connect } from "react-redux";
 import { setTypedMessage, setEditing, deleteMessage } from "../actions";
+import { getProfilePicSrc } from "../utils/functions";
+
 //parent: ChatMessages
 const ChatMessage = ({
   activeId,
@@ -55,7 +57,11 @@ const ChatMessage = ({
         <span>
           <img
             className="chat-pic"
-            src={is_user ? user.pic : contacts[activeId].pic}
+            src={
+              is_user
+                ? getProfilePicSrc(user.pic)
+                : getProfilePicSrc(contacts[activeId].pic)
+            }
             alt=""
           />
         </span>

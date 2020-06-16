@@ -8,12 +8,6 @@ const UserSchema = new Schema({
   pic: String,
   status: String,
   details: String,
-  friends: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-  ],
 });
 
 //when a new user created, put it in user collection, according to UserSchema

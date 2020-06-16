@@ -1,6 +1,4 @@
-import data from "../data";
-
-const typedMessage = (state = data.typedMessage, action) => {
+const typedMessage = (state = null, action) => {
   switch (action.type) {
     case "SET_TYPED_MESSAGE": {
       return action.message;
