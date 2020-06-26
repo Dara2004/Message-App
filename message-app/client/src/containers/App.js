@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import ChatList from "../components/ChatList";
@@ -9,7 +9,11 @@ import About from "../components/About";
 //parent: index.js
 function App({ contacts, activeId, user }) {
   const [view, setView] = useState("home");
-  // console.log(contacts);
+  useEffect(() => {
+    fetch("http://localhost:9000/users/").then((res) => {
+      console.log(res.text());
+    })
+  }, [])
   if (view === "home") {
     return (
       <div className="App">
