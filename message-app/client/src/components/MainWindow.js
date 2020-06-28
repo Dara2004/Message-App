@@ -7,19 +7,17 @@ import { connect } from "react-redux";
 
 //parent: App.js
 const MainWindow = ({ user, activeId, selectedContactId, setActiveId }) => {
-  console.log("MainWindow... activeId: ", activeId);
+
 
   const showContent = () => {
-    if (!activeId && !selectedContactId) {
-      //if no chat is active, show user's profile
-      //default activeId = 0 --> corgi
+    if (selectedContactId && activeId) {
+      return <ChatWindow activeContactId={activeId} />;
+    }
+    else if (!activeId && !selectedContactId) {
       return <WelcomeWindow user={user} />;
     } else if (!activeId && selectedContactId) {
       //if a contact is selected -> go to ViewDetail mode
       return <ContactViewDetail />;
-    } else if (!selectedContactId && activeId) {
-      //Chat mode
-      return <ChatWindow activeContactId={activeId} />;
     }
   };
 
@@ -27,6 +25,6 @@ const MainWindow = ({ user, activeId, selectedContactId, setActiveId }) => {
 };
 
 const mapStateToProps = (state) => {
-  return { selectedContactId: state.selectedContactId };
+  return { selectedContactId: state.selectedContactId.selectedContactId };
 };
 export default connect(mapStateToProps, { setActiveId })(MainWindow);

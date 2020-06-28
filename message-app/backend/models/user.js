@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 //create schema and model
 const UserSchema = new Schema({
-  user_id: Number,
   name: String,
   pic: String,
   status: String,

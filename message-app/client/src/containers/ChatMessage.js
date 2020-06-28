@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useRef } from "react";
 import { connect } from "react-redux";
-import { setTypedMessage, setEditing, deleteMessage } from "../actions";
+import { deleteMessage } from "../actions/messages"
+import { setTypedMessage, setEditing } from "../actions";
 import { getProfilePicSrc } from "../utils/functions";
 
 //parent: ChatMessages
@@ -17,6 +18,7 @@ const ChatMessage = ({
 }) => {
   const [isDeleteVisible, setDeleteVisible] = useState(false);
   const { text, is_user } = message;
+  console.log(message);
   const del = useRef(null);
 
   const handleOnclick = (e) => {

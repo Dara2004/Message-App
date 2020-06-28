@@ -4,15 +4,16 @@ const Schema = mongoose.Schema;
 const ConversationSchema = new Schema({
   otherPerson: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: "user",
   },
   messages: [
     {
       authorID: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: "user",
       },
       message: String,
+      created: { type: Date, default: () => new Date() },
     },
   ],
 });

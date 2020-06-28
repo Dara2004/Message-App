@@ -4,26 +4,30 @@ function randomQuote() {
   return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
-const messages = (state = [], action) => {
+const initialState = {
+  editing: {
+    isEditing: false,
+    editedMessageId: null,
+  },
+  loading: false,
+  error: null,
+}
+const messages = (state = initialState, action) => {
   const existingMessages = state[action.messageId];
   switch (action.type) {
-    case "CREATE_PERSON": {
-      const id = Object.keys(state).length;
+    case "SEND_MESSAGE_BEGIN": {
       return {
         ...state,
-        [id]: [
-          {
-            is_user: false,
-            text: randomQuote(),
-          },
-        ],
-      };
+        loading: true,
+      }
     }
-    case "SEND_MESSAGE": {
+    case "SEND_MESSAGE_SUCCESS": {
       //create a new conversation if id is new
       if (!existingMessages) {
         return {
           ...state,
+          loading: false,
+          error: null,
           [action.messageId]: [
             {
               is_user: true,
@@ -33,6 +37,7 @@ const messages = (state = [], action) => {
         };
       } else {
         //add message to existing conversation
+        console.log(action.message);
         return {
           ...state,
           [action.messageId]: [
@@ -44,6 +49,25 @@ const messages = (state = [], action) => {
           ],
         };
       }
+    }
+    case "SEND_MESSAGE_ERROR": {
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      }
+    }
+    case "CREATE_PERSON": {
+      const id = Object.keys(state).length;
+      return { //create a default initial message
+        ...state,
+        [id]: [
+          {
+            is_user: false,
+            text: randomQuote(),
+          },
+        ],
+      };
     }
     case "SET_EDITING": {
       return {

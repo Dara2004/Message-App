@@ -10,31 +10,12 @@ export const setTypedMessage = (message) => ({
   message,
 });
 
-//send data to messages reducer
-export const sendMessage = (message, messageId) => ({
-  type: "SEND_MESSAGE",
-  message,
-  messageId,
-});
-
-//send data to messages reducer
-export const updateMessage = (editedText, activeId) => ({
-  type: "UPDATE_MESSAGE",
-  editedText,
-  activeId,
-});
-
 //send data to editing reducer
 export const setEditing = (editedMessageId) => ({
   type: "SET_EDITING",
   editedMessageId,
 });
 
-export const deleteMessage = (messageId, activeId) => ({
-  type: "DELETE_MESSAGE",
-  messageId,
-  activeId,
-});
 
 export const setSelectedContactId = (contactId) => ({
   type: "SET_SELECTED_CONTACT_ID",

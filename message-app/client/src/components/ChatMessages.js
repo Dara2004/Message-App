@@ -15,7 +15,6 @@ const ChatMessages = ({ messages }) => {
       {messages.map((m, idx) => (
         <ChatMessage message={m} index={idx} key={idx}></ChatMessage>
       ))}
-    </div>
-  );
+    </div>);
 };
 export default ChatMessages;

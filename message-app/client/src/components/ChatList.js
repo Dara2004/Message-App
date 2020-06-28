@@ -22,7 +22,7 @@ const ChatList = ({ contacts, createPerson }) => {
   return (
     <>
       <div className="chat-list">
-        {contacts.map((contact) => (
+        {Object.values(contacts).map((contact) => (
           <Contact contact={contact} key={contact.user_id} />
         ))}
         <div style={{ flex: 1 }}></div>

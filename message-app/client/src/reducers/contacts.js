@@ -11,7 +11,13 @@ function randomImage() {
   return dogImages[Math.floor(Math.random() * dogImages.length)];
 }
 
-const contacts = (state = [], action) => {
+const initialState = {
+  contacts: [],
+  loading: false,
+  error: null
+};
+
+const contacts = (state = initialState, action) => {
   switch (action.type) {
     case "CREATE_PERSON": {
       return [

@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setTypedMessage, sendMessage, updateMessage } from "../actions";
+import { setTypedMessage } from "../actions";
+import { sendMessage, updateMessage } from "../actions/messages"
+import { Loader } from "../components/Loader"
 
 //parent: ChatWindow
 const ChatInput = ({
@@ -30,6 +32,9 @@ const ChatInput = ({
   const handleClear = (e) => {
     setTypedMessage("");
   };
+  if (messages.loading) {
+    return <Loader />
+  }
   return (
     <form className="chat-form" onSubmit={handleSubmit}>
       <input

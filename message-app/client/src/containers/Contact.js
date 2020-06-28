@@ -2,13 +2,14 @@ import React from "react";
 import { setSelectedContactId } from "../actions";
 import { connect } from "react-redux";
 import { getProfilePicSrc } from "../utils/functions";
+import { fetchContactDetail } from "../actions/contacts";
 
 //parent: ChatList
-const Contact = ({ contact, activeId, setSelectedContactId }) => {
+const Contact = ({ contact, activeId, fetchContactDetail }) => {
   const { pic, name, status } = contact;
 
   const handleClick = () => {
-    setSelectedContactId(contact.user_id);
+    fetchContactDetail(contact.user_id);
   };
 
   return (
@@ -29,4 +30,4 @@ const mapStateToProps = (state) => {
     activeId: state.activeId,
   };
 };
-export default connect(mapStateToProps, { setSelectedContactId })(Contact);
+export default connect(mapStateToProps, { fetchContactDetail })(Contact);

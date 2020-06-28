@@ -9,11 +9,7 @@ import About from "../components/About";
 //parent: index.js
 function App({ contacts, activeId, user }) {
   const [view, setView] = useState("home");
-  useEffect(() => {
-    fetch("http://localhost:9000/users/").then((res) => {
-      console.log(res.text());
-    })
-  }, [])
+
   if (view === "home") {
     return (
       <div className="App">
