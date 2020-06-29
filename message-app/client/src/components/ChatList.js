@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Contact from "../containers/Contact";
 import { connect } from "react-redux";
 import { createPerson } from "../actions";
+import { Loader } from "../components/Loader";
 
 //parent: App.js
 const ChatList = ({ contacts, createPerson }) => {
@@ -19,11 +20,14 @@ const ChatList = ({ contacts, createPerson }) => {
       e.target.details.value
     );
   };
+  if (contacts.loading) {
+    return <Loader />
+  }
   return (
     <>
       <div className="chat-list">
-        {Object.values(contacts).map((contact) => (
-          <Contact contact={contact} key={contact.user_id} />
+        {Object.values(contacts.contacts).map((contact, idx) => (
+          <Contact contact={contact} key={idx} />
         ))}
         <div style={{ flex: 1 }}></div>
         <h3

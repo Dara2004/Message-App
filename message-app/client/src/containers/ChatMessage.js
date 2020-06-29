@@ -2,7 +2,8 @@ import React from "react";
 import { useState, useRef } from "react";
 import { connect } from "react-redux";
 import { deleteMessage } from "../actions/messages"
-import { setTypedMessage, setEditing } from "../actions";
+import { setTypedMessage } from "../actions";
+import { setEditing } from "../actions/messages";
 import { getProfilePicSrc } from "../utils/functions";
 
 //parent: ChatMessages
@@ -18,12 +19,9 @@ const ChatMessage = ({
 }) => {
   const [isDeleteVisible, setDeleteVisible] = useState(false);
   const { text, is_user } = message;
-  console.log(message);
   const del = useRef(null);
 
   const handleOnclick = (e) => {
-    console.log(e.currentTarget);
-    console.log(del.current);
     if (e.target === del.current) {
       return;
     }
@@ -62,7 +60,7 @@ const ChatMessage = ({
             src={
               is_user
                 ? getProfilePicSrc(user.pic)
-                : getProfilePicSrc(contacts[activeId].pic)
+                : getProfilePicSrc(contacts.contacts[activeId].pic)
             }
             alt=""
           />

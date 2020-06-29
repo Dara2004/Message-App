@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import ChatList from "../components/ChatList";

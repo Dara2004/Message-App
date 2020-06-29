@@ -18,17 +18,6 @@ const selectedContactId = (state = null, action) => {
         loading: false,
         error: action.error,
       }
-    // case "SET_SELECTED_CONTACT_ID": {
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     error: action.error,
-    //   }
-    //   return action.contactId;
-    // }
-    // case "SET_ACTIVE_ID": {
-    //   return null;
-    // }
     default: {
       return state;
     }

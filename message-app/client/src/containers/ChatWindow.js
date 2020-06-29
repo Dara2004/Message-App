@@ -6,9 +6,8 @@ import ChatInput from "./ChatInput";
 
 //parent: MainWindow
 const ChatWindow = ({ contacts, messages, activeContactId }) => {
-  const activeContact = contacts[activeContactId];
+  const activeContact = contacts.contacts[activeContactId];
   const activeMessages = messages[activeContactId];
-  console.log(activeMessages);
   return (
     <div className="chat-window">
       <ChatHeader activeContact={activeContact} />

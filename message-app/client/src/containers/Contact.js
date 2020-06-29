@@ -1,5 +1,4 @@
 import React from "react";
-import { setSelectedContactId } from "../actions";
 import { connect } from "react-redux";
 import { getProfilePicSrc } from "../utils/functions";
 import { fetchContactDetail } from "../actions/contacts";

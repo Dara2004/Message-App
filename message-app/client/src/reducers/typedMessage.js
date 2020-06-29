@@ -3,6 +3,8 @@ const typedMessage = (state = null, action) => {
     case "SET_TYPED_MESSAGE": {
       return action.message;
     }
+    case "SEND_MESSAGE_BEGIN":
+    case "UPDATE_MESSAGE_BEGIN":
     case "SEND_MESSAGE": {
       //to clear out the typedMessage after user hits enter
       return "";

@@ -19,7 +19,7 @@ const data = {
   messages: {
     editing: {
       isEditing: false,
-      editedMessageId: null,
+      editedMessageId: null,//id of the message being edited (in the current conversation --from activeId)
     },
     1: [
       {

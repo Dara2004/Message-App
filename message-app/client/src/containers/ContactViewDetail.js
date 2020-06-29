@@ -13,7 +13,7 @@ const ContactViewDetail = ({
   // fetchMessages
 }) => {
   const contact = useSelector(state => state.selectedContactId);
-  const contactToShow = contacts[selectedContactId];
+  const contactToShow = contacts.contacts[selectedContactId];
   if (contact.loading) {
     return <Loader />
   }
