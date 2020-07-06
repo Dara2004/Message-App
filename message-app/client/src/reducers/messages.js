@@ -5,6 +5,7 @@ const initialState = {
   },
   loading: false,
   error: null,
+  //messages is a map of other person's id to array of messages (see data)
 }
 const messages = (state = initialState, action) => {
   const existingMessages = state[action.messageId];
@@ -104,10 +105,10 @@ const messages = (state = initialState, action) => {
       }
     }
     case "CREATE_PERSON_SUCCESS": {
-      const id = Object.keys(state).length;
+      // const id = Object.keys(state).length;
       return { //create a default initial message
         ...state,
-        [id]: [
+        [action.uID]: [
           {
             is_user: false,
             text: action.quote,

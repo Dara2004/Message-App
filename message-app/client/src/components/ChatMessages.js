@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import ChatMessage from "../containers/ChatMessage";
+import { Loader } from "../components/Loader"
 
 //parent: ChatWindow
 const ChatMessages = ({ messages }) => {
@@ -10,6 +11,10 @@ const ChatMessages = ({ messages }) => {
     el.current.scrollTop = el.current.scrollHeight;
   }, [messages]);
 
+  if (messages.loading) {
+    return <Loader />
+  }
+  console.log(messages);
   return (
     <div className="chat-messages" ref={el}>
       {messages.map((m, idx) => (

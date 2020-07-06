@@ -4,6 +4,7 @@ const barackPic = "barack-obama.jpg";
 const rihannaPic = "rihanna.jpg";
 const kevinPic = "kevin-hart.jpg";
 
+//old data no longer being used
 const data = {
   activeId: null,
   isTyping: false,

@@ -8,7 +8,6 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const mongoose = require("mongoose");
-const bodyParser = 'body-parser';
 
 var app = express();
 
@@ -41,7 +40,8 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-MONGODB_URI = "mongodb+srv://m001-student:m001-mongodb-basics@cluster0-wykga.mongodb.net/messageApp?retryWrites=true&w=majority";
+MONGODB_URI = 'mongodb+srv://m001-student:gfW9CxVVWqRVoc4t@cluster0-wykga.mongodb.net/messageApp?retryWrites=true&w=majority'
+
 mongoose.connect(MONGODB_URI); //mongodb will create this db if it has not existed. can connect to multiple dbs
 
 mongoose.connection
