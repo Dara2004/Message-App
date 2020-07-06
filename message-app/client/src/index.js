@@ -22,6 +22,7 @@ function Root() {
       });
     })
   }, []);
+
   if (Object.keys(initialState).length === 0) {
     return <Loader />
   }

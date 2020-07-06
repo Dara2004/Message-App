@@ -15,7 +15,7 @@ export const fetchContactDetail = (contactId) => {
   return async function (dispatch) {
     dispatch(fetchContactBegin(contactId));
     try {
-      // await fetch(`http://localhost:9000/user/${contactId}`);
+      await fetch(`http://localhost:9000/user/${contactId}`);
       dispatch(fetchContactSuccess());
     }
     catch (err) {
