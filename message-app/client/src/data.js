@@ -4,6 +4,7 @@ const barackPic = "barack-obama.jpg";
 const rihannaPic = "rihanna.jpg";
 const kevinPic = "kevin-hart.jpg";
 
+//old data no longer being used
 const data = {
   activeId: null,
   isTyping: false,
@@ -19,7 +20,7 @@ const data = {
   messages: {
     editing: {
       isEditing: false,
-      editedMessageId: null,
+      editedMessageId: null,//id of the message being edited (in the current conversation --from activeId)
     },
     1: [
       {

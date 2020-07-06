@@ -1,22 +1,28 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { setActiveId } from "../actions";
 import { getProfilePicSrc } from "../utils/functions";
+import { Loader } from "../components/Loader";
+
 //parent: MainWindow
 const ContactViewDetail = ({
   activeId,
   contacts,
   selectedContactId,
   setActiveId,
+  // fetchMessages
 }) => {
-  const contactToShow = contacts[selectedContactId];
+  const contact = useSelector(state => state.selectedContactId);
+  const contactToShow = contacts.contacts[selectedContactId];
+  if (contact.loading) {
+    return <Loader />
+  }
   const { name, pic, status, details } = contactToShow;
   const handleClick = () => {
     if (activeId !== contactToShow.user_id) {
-      setActiveId(contactToShow.user_id); //dispatch action
+      setActiveId(contactToShow.user_id);
     }
   };
-
   return (
     <div
       className="welcome-window"
@@ -44,7 +50,7 @@ const ContactViewDetail = ({
 };
 const mapStateToProps = (state) => {
   return {
-    selectedContactId: state.selectedContactId,
+    selectedContactId: state.selectedContactId.selectedContactId,
     contacts: state.contacts,
     activeId: state.activeId,
   };

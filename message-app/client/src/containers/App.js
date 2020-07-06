@@ -9,7 +9,7 @@ import About from "../components/About";
 //parent: index.js
 function App({ contacts, activeId, user }) {
   const [view, setView] = useState("home");
-  // console.log(contacts);
+
   if (view === "home") {
     return (
       <div className="App">

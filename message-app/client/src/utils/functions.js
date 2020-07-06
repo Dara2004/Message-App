@@ -1,11 +1,14 @@
+//convert fetched data from the backend to the format compatible to the front end
 const createInitialReduxState = (dataFromBackend) => {
-  const accountOwner = dataFromBackend.users[0];
+  const accountOwner = dataFromBackend.users.find(u => u.name === "Corgi");
   const conversations = dataFromBackend.conversations;
   const messages = {
     editing: {
       isEditing: false,
       editedMessageId: null,
     },
+    loading: false,
+    error: false,
   };
   for (const c of conversations) {
     messages[c.otherPerson] = [];
@@ -16,17 +19,19 @@ const createInitialReduxState = (dataFromBackend) => {
       });
     }
   }
-  const contacts = dataFromBackend.users.map((user) => ({
+  const contacts = { contacts: {}, loading: false, error: null };
+  dataFromBackend.users.filter(u => u.name !== "Corgi").map((user) => (contacts.contacts[user._id] = {
     user_id: user._id,
     name: user.name,
     pic: user.pic,
     status: user.status,
     details: user.details,
   }));
+
   return {
     activeId: null,
     isTyping: false,
-    selectedContactId: null,
+    selectedContactId: {},
     typedMessage: "",
     user: {
       user_id: accountOwner._id,

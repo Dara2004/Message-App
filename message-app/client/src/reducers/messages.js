@@ -1,29 +1,28 @@
-const quotes = ["Hi Corgi you finally added me!", "Woof!"];
-
-function randomQuote() {
-  return quotes[Math.floor(Math.random() * quotes.length)];
+const initialState = {
+  editing: {
+    isEditing: false,
+    editedMessageId: null,
+  },
+  loading: false,
+  error: null,
+  //messages is a map of other person's id to array of messages (see data)
 }
-
-const messages = (state = [], action) => {
+const messages = (state = initialState, action) => {
   const existingMessages = state[action.messageId];
   switch (action.type) {
-    case "CREATE_PERSON": {
-      const id = Object.keys(state).length;
+    case "SEND_MESSAGE_BEGIN": {
       return {
         ...state,
-        [id]: [
-          {
-            is_user: false,
-            text: randomQuote(),
-          },
-        ],
-      };
+        loading: true,
+      }
     }
-    case "SEND_MESSAGE": {
+    case "SEND_MESSAGE_SUCCESS": {
       //create a new conversation if id is new
       if (!existingMessages) {
         return {
           ...state,
+          loading: false,
+          error: null,
           [action.messageId]: [
             {
               is_user: true,
@@ -35,6 +34,8 @@ const messages = (state = [], action) => {
         //add message to existing conversation
         return {
           ...state,
+          loading: false,
+          error: null,
           [action.messageId]: [
             ...existingMessages, //preserve existing messages
             {
@@ -45,16 +46,20 @@ const messages = (state = [], action) => {
         };
       }
     }
-    case "SET_EDITING": {
+    case "SEND_MESSAGE_ERROR": {
       return {
         ...state,
-        editing: {
-          isEditing: true,
-          editedMessageId: action.editedMessageId,
-        },
-      };
+        loading: false,
+        error: action.error,
+      }
     }
-    case "UPDATE_MESSAGE": {
+    case "UPDATE_MESSAGE_BEGIN": {
+      return {
+        ...state,
+        loading: true,
+      }
+    }
+    case "UPDATE_MESSAGE_SUCCESS": {
       const newState = { ...state };
       const activeConversation = [...state[action.activeId]];
       newState[action.activeId] = activeConversation;
@@ -66,7 +71,59 @@ const messages = (state = [], action) => {
         isEditing: false,
         editedMessageId: null, //optional
       };
+      return {
+        ...newState,
+        loading: false,
+        error: null
+      }
+    }
+    case "UPDATE_MESSAGE_FAILURE": {
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      }
+    }
+    case "DELETE_MESSAGE_BEGIN": {
+      return {
+        ...state,
+        loading: true,
+      }
+    }
+    case "DELETE_MESSAGE_SUCCESS": {
+      const newState = { ...state, loading: false, error: null }; //all messages
+      newState[action.activeId] = newState[action.activeId].filter(
+        (m, index) => action.messageId !== index
+      );
       return newState;
+    }
+    case "DELETE_MESSAGE_FAILURE": {
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      }
+    }
+    case "CREATE_PERSON_SUCCESS": {
+      // const id = Object.keys(state).length;
+      return { //create a default initial message
+        ...state,
+        [action.uID]: [
+          {
+            is_user: false,
+            text: action.quote,
+          },
+        ],
+      };
+    }
+    case "SET_EDITING": {
+      return {
+        ...state,
+        editing: {
+          isEditing: true,
+          editedMessageId: action.editedMessageId,
+        },
+      };
     }
     case "SET_ACTIVE_ID": {
       return {
@@ -75,13 +132,6 @@ const messages = (state = [], action) => {
           isEditing: false,
         },
       };
-    }
-    case "DELETE_MESSAGE": {
-      const newState = { ...state }; //all messages
-      newState[action.activeId] = newState[action.activeId].filter(
-        (message, index) => action.messageId !== index
-      );
-      return newState;
     }
     default:
       return state;
